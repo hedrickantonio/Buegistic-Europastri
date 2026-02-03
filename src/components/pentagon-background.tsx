@@ -3,12 +3,7 @@
 import React from 'react';
 
 const PentagonBackground = () => {
-  return (
-    <>
-      <div className="logoBase" />
-      <div className="logoShine" />
-    </>
-  );
+  return <div className="logoShine" />;
 };
 
 export default PentagonBackground;

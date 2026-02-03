@@ -112,9 +112,9 @@
   width: 100%;
   display: grid;
   place-items: center;
+  transform: translateY(clamp(-40px, -5vh, -10px));
 }
 
-.logoBase,
 .logoShine {
   position: absolute;
   left: 50%;
@@ -122,65 +122,56 @@
   width: clamp(720px, 95vw, 1400px);
   height: clamp(720px, 95vw, 1400px);
   transform: translate(-50%, -50%) rotate(-10deg);
+  
+  background-color: transparent;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 220, 130, 0.9) 0%,
+    rgba(212, 175, 55, 0.5) 10%,
+    transparent 25%
+  );
+  background-size: 25% 25%;
+  background-repeat: no-repeat;
+  
   -webkit-mask-image: url('/bluegistics-mask.png');
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: contain;
+  -webkit-mask-mode: luminance;
+
   mask-image: url('/bluegistics-mask.png');
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
+  mask-mode: luminance;
+
+  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+
+  animation: spotlight-roam 7s ease-in-out infinite;
 }
 
-.logoBase {
-  background: rgba(212, 175, 55, 0.18);
-  filter: drop-shadow(0 0 26px rgba(212, 175, 55, 0.2));
-  opacity: 1;
-}
-
-.logoShine {
-  background: linear-gradient(
-    120deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(212, 175, 55, 0) 35%,
-    rgba(255, 230, 160, 0.95) 50%,
-    rgba(212, 175, 55, 0) 65%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  background-size: 240% 240%;
-  filter: drop-shadow(0 0 14px rgba(255, 230, 160, 0.55))
-    drop-shadow(0 0 36px rgba(212, 175, 55, 0.35));
-  animation: shineSweep 2.8s linear infinite,
-    glowPulse 2.8s ease-in-out infinite;
-}
-
-@keyframes shineSweep {
+@keyframes spotlight-roam {
   0% {
-    background-position: -120% 140%;
+    background-position: 20% 90%;
     opacity: 0;
   }
   10% {
-    opacity: 1;
+    opacity: 0.9;
+  }
+  25% {
+    background-position: 100% 60%;
   }
   50% {
-    background-position: 120% -40%;
-    opacity: 1;
+    background-position: 60% 0%;
+  }
+  75% {
+    background-position: 0% 40%;
   }
   90% {
-    opacity: 1;
+    opacity: 0.9;
   }
   100% {
-    background-position: 220% -120%;
+    background-position: 20% 90%;
     opacity: 0;
-  }
-}
-
-@keyframes glowPulse {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) rotate(-10deg) scale(1);
-  }
-  50% {
-    transform: translate(-50%, -50%) rotate(-10deg) scale(1.015);
   }
 }
