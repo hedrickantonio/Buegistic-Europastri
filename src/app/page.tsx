@@ -60,10 +60,8 @@ export default function Home() {
   
   return (
     <main className="screen text-foreground">
+      <PentagonBackground />
       <div className="scene">
-        <div className="pentagon-layer">
-          <PentagonBackground />
-        </div>
         <div className="form-layer">
           <div className="w-full max-w-2xl flex flex-col items-center">
             <LoadForm
