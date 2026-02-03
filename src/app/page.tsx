@@ -8,7 +8,7 @@ import { type LoadData, type NewLoadData } from '@/lib/datastore/types';
 import { useAuth } from '@/hooks/use-auth';
 import { useToast } from '@/hooks/use-toast';
 import { Clock } from 'lucide-react';
-import PentagonBackground from '@/components/pentagon-background';
+import BluegisticsBackground from '@/components/bluegistics-background';
 
 export default function Home() {
   const [savedData, setSavedData] = useState<LoadData | null>(null);
@@ -60,7 +60,7 @@ export default function Home() {
   
   return (
     <main className="screen text-foreground">
-      <PentagonBackground />
+      <BluegisticsBackground />
       <div className="scene">
         <div className="form-layer">
           <div className="w-full max-w-2xl flex flex-col items-center">
