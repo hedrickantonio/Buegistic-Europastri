@@ -115,7 +115,6 @@
   position: relative;
   width: min(1200px, 90vw);
   height: min(1200px, 90vw);
-  transform: rotate(-10deg);
   display: grid;
   place-items: center;
 }
@@ -142,12 +141,12 @@
 .logoFinal {
   background: rgba(212, 175, 55, 0.75);
   filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.5));
-  animation: fadeInLogo 3.5s ease-in-out infinite;
+  animation: fadeInLogo 5.5s ease-in-out infinite;
 }
 
 /* Container for the 3 moving lights */
 .logoGlow {
-  animation: fadeOutGlows 3.5s ease-in-out infinite;
+  animation: fadeOutGlows 5.5s ease-in-out infinite;
 }
 
 /* The 3 lights (main element + 2 pseudo-elements) */
@@ -162,17 +161,17 @@
 
 .logoGlow {
   background-image: linear-gradient(45deg, transparent 40%, rgba(255, 230, 160, 1) 50%, transparent 60%);
-  animation: fadeOutGlows 3.5s ease-in-out infinite, lightSweep1 3.5s linear infinite;
+  animation: fadeOutGlows 5.5s ease-in-out infinite, lightSweep1 5.5s linear infinite;
 }
 
 .logoGlow::before {
   background-image: linear-gradient(135deg, transparent 40%, rgba(255, 230, 160, 1) 50%, transparent 60%);
-  animation: fadeOutGlows 3.5s ease-in-out infinite, lightSweep2 3.5s linear infinite;
+  animation: fadeOutGlows 5.5s ease-in-out infinite, lightSweep2 5.5s linear infinite;
 }
 
 .logoGlow::after {
   background-image: linear-gradient(-90deg, transparent 40%, rgba(255, 230, 160, 1) 50%, transparent 60%);
-  animation: fadeOutGlows 3.5s ease-in-out infinite, lightSweep3 3.5s linear infinite;
+  animation: fadeOutGlows 5.5s ease-in-out infinite, lightSweep3 5.5s linear infinite;
 }
 
 /* Orchestration Animations */
