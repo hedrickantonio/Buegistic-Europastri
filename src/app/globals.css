@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -116,6 +112,14 @@ body {
   transform: scale(1.2);
   filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.35));
   opacity: 0.95;
+}
+
+#bluegistics-logo .logo-path {
+  fill: none;
+  stroke: #D4AF37;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .form-layer {
