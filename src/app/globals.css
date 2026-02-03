@@ -105,27 +105,82 @@
   place-items: center;
   pointer-events: none;
   z-index: 0;
-  overflow: hidden; /* importante */
-}
-
-#bluegistics-logo {
-  width: clamp(700px, 90vw, 1200px); /* visible en casi cualquier pantalla */
-  height: auto;
-  transform: translateZ(0) rotate(-10deg); /* si quieres la inclinación */
-  filter: drop-shadow(0 0 26px rgba(212,175,55,0.22));
-  opacity: 0.95;
-}
-
-/* Glow extra SOLO para el runner */
-#logo-glow {
-  filter: drop-shadow(0 0 10px rgba(212,175,55,0.55))
-          drop-shadow(0 0 22px rgba(212,175,55,0.35));
+  overflow: hidden;
 }
 
 .form-layer {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   width: 100%;
   display: grid;
   place-items: center;
+}
+
+.logoBase,
+.logoShine {
+  width: clamp(720px, 95vw, 1400px);
+  height: clamp(720px, 95vw, 1400px);
+  transform: rotate(-10deg);
+  -webkit-mask-image: url('/bluegistics-mask.png');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-image: url('/bluegistics-mask.png');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+.logoBase {
+  background: rgba(212, 175, 55, 0.18);
+  filter: drop-shadow(0 0 26px rgba(212, 175, 55, 0.2));
+  opacity: 1;
+}
+
+.logoShine {
+  background: linear-gradient(
+    120deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(212, 175, 55, 0) 35%,
+    rgba(255, 230, 160, 0.95) 50%,
+    rgba(212, 175, 55, 0) 65%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background-size: 240% 240%;
+  filter: drop-shadow(0 0 14px rgba(255, 230, 160, 0.55))
+    drop-shadow(0 0 36px rgba(212, 175, 55, 0.35));
+  animation: shineSweep 2.8s linear infinite,
+    glowPulse 2.8s ease-in-out infinite;
+  opacity: 0.95;
+}
+
+@keyframes shineSweep {
+  0% {
+    background-position: -120% 140%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    background-position: 120% -40%;
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    background-position: 220% -120%;
+    opacity: 0;
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    transform: rotate(-10deg) scale(1);
+  }
+  50% {
+    transform: rotate(-10deg) scale(1.015);
+  }
 }
