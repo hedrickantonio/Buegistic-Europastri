@@ -98,71 +98,79 @@
   place-items: center;
 }
 
+/* Fullscreen container for the logo, behind everything */
 .pentagon-layer {
-  position: absolute;
+  position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   z-index: 0;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
+  overflow: visible; /* Prevent clipping */
 }
 
+/* The form is placed on top of the background */
 .form-layer {
   position: relative;
   z-index: 2;
   width: 100%;
   display: grid;
   place-items: center;
-  transform: translateY(clamp(20px, 4vh, 60px));
+  /* Nudge the form to fit inside the inner pentagon */
+  transform: translateY(clamp(30px, 5vh, 70px));
 }
 
-/* The two layers for the mask effect */
+/* Both layers use the same mask and positioning */
 .logoInk,
 .logoGlow {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%) rotate(-10deg);
-  width: clamp(1200px, 180vw, 2600px);
-  height: clamp(1200px, 180vw, 2600px);
+  /* Make the logo huge to wrap around the form */
+  width: clamp(1400px, 210vw, 3200px);
+  height: clamp(1400px, 210vw, 3200px);
 
-  /* The PNG mask */
+  /* The PNG mask with alpha channel */
   -webkit-mask-image: url('/bluegistics-mask.png');
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: contain;
-  -webkit-mask-mode: alpha; /* Use alpha for transparency */
+  -webkit-mask-mode: alpha;
 
   mask-image: url('/bluegistics-mask.png');
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
-  mask-mode: alpha; /* Use alpha for transparency */
+  mask-mode: alpha;
 }
 
-/* Layer 1: The black ink of the logo (invisible on black bg) */
+/* Layer 1: Black ink, sits on top of the glow, making lines invisible */
 .logoInk {
   background-color: #000;
-  z-index: 1; /* Sits on top of the glow */
+  z-index: 1;
 }
 
-/* Layer 2: The animated glow underneath the ink */
+/* Layer 2: The animated glow, sits behind the ink */
 .logoGlow {
   background-color: transparent;
+  /* Intense gold spotlight gradient */
   background-image: radial-gradient(
     circle,
-    rgba(255, 220, 130, 0.9) 0%,
-    rgba(212, 175, 55, 0.5) 10%,
-    transparent 20%
+    rgba(255, 230, 160, 1) 0%,
+    rgba(212, 175, 55, 0.8) 8%,
+    rgba(212, 100, 55, 0.3) 15%,
+    transparent 25%
   );
-  background-size: 30% 30%;
+  background-size: 35% 35%;
   background-repeat: no-repeat;
-  z-index: 0; /* Sits behind the ink */
+  z-index: 0;
   
-  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+  /* Multiple drop-shadows for a strong glow effect */
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.7))
+          drop-shadow(0 0 35px rgba(212, 175, 55, 0.5));
 
-  animation: glow-roam 7s ease-in-out infinite;
+  animation: glow-roam 6s ease-in-out infinite;
 }
 
 @keyframes glow-roam {
@@ -171,7 +179,7 @@
     opacity: 0;
   }
   10% {
-    opacity: 0.9;
+    opacity: 1;
   }
   25% {
     background-position: 100% 60%;
@@ -183,7 +191,7 @@
     background-position: 0% 40%;
   }
   90% {
-    opacity: 0.9;
+    opacity: 1;
   }
   100% {
     background-position: 20% 90%;
