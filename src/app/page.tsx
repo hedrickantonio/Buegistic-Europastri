@@ -59,8 +59,20 @@ export default function Home() {
   };
   
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 md:p-12 bg-background text-foreground">
-      <div className="w-full max-w-2xl flex flex-col items-center">
+    <main className="relative flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 md:p-12 bg-background text-foreground overflow-hidden">
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+        <svg
+          viewBox="-70 -70 140 140"
+          xmlns="http://www.w3.org/2000/svg"
+          className="opacity-10"
+          width="800"
+          height="800"
+        >
+          <path d="M0 -52 L49.5 -16.0 L30.6 42.0 L-30.6 42.0 L-49.5 -16.0 Z"
+              stroke="white" strokeWidth={3} fill="none" />
+        </svg>
+      </div>
+      <div className="relative z-10 w-full max-w-2xl flex flex-col items-center">
         <AnimatedLogo />
         <LoadForm
           initialData={savedData}
