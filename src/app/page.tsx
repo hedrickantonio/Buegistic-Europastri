@@ -59,7 +59,7 @@ export default function Home() {
   };
   
   return (
-    <main className="screen bg-background text-foreground">
+    <main className="screen text-foreground">
       <div className="scene">
         <div className="pentagon-layer">
           <PentagonBackground />
