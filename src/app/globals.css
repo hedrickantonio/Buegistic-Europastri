@@ -152,7 +152,6 @@
     drop-shadow(0 0 36px rgba(212, 175, 55, 0.35));
   animation: shineSweep 2.8s linear infinite,
     glowPulse 2.8s ease-in-out infinite;
-  opacity: 0.95;
 }
 
 @keyframes shineSweep {
