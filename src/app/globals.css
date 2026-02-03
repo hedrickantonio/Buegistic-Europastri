@@ -111,10 +111,10 @@ body {
 }
 
 .pentagon-layer svg {
-  width: min(1050px, 96vw);
+  width: min(1200px, 96vw);
   height: auto;
-  transform: scale(1.12);
-  filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.30));
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.35));
   opacity: 0.95;
 }
 
@@ -124,8 +124,4 @@ body {
   width: 100%;
   display: grid;
   place-items: center;
-}
-
-#bluegistics-pentagon {
-  filter: drop-shadow(0 0 14px rgba(212, 175, 55, 0.35));
 }

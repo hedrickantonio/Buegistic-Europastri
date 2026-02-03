@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import AnimatedLogo from '@/components/animated-logo';
 import { LoadForm } from '@/components/load-form';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { dataStore } from '@/lib/datastore';
@@ -67,7 +66,6 @@ export default function Home() {
         </div>
         <div className="form-layer">
           <div className="w-full max-w-2xl flex flex-col items-center">
-            <AnimatedLogo />
             <LoadForm
               initialData={savedData}
               onSave={handleSave}

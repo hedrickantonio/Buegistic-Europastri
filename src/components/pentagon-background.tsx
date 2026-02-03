@@ -5,57 +5,38 @@ import anime from 'animejs';
 
 const PentagonBackground = () => {
   useEffect(() => {
-    const all = document.querySelectorAll<SVGPathElement>("#bluegistics-pentagon .pent-edge");
+    const path = document.querySelector<SVGPathElement>("#bluegistics-logo .logo-path");
 
-    if (all.length === 0) return;
+    if (path) {
+      const length = path.getTotalLength();
 
-    all.forEach((p) => {
-      const len = p.getTotalLength();
-      p.style.strokeDasharray = `${len}`;
-      p.style.strokeDashoffset = `${len}`;
-    });
+      path.style.strokeDasharray = `${length}`;
+      path.style.strokeDashoffset = `${length}`;
 
-    anime({
-      targets: "#bluegistics-pentagon .outer",
-      strokeDashoffset: [anime.setDashoffset, 0],
-      duration: 1200,
-      easing: "easeInOutSine",
-    });
-
-    anime({
-      targets: "#bluegistics-pentagon .inner",
-      strokeDashoffset: [anime.setDashoffset, 0],
-      duration: 1100,
-      easing: "easeInOutSine",
-      delay: 900,
-    });
+      anime({
+        targets: path,
+        strokeDashoffset: [length, 0],
+        duration: 1800,
+        easing: "easeInOutSine",
+      });
+    }
   }, []);
 
   return (
     <svg
-      id="bluegistics-pentagon"
-      viewBox="0 0 1000 1000"
+      id="bluegistics-logo"
+      viewBox="0 0 210 297"
       aria-hidden="true"
     >
-      <g
+      <path
+        className="logo-path"
+        d="m 77.8524,172.06347 c -0.424239,-0.99066 -1.051187,-2.67409 -1.393218,-3.74095 -0.973139,-3.03541 -12.931293,-38.97011 -17.031823,-51.18127 -2.031733,-6.05039 -3.476208,-11.18924 -3.209945,-11.41968 1.010065,-0.87414 57.080156,-40.279542 58.673666,-41.235162 0.46331,-0.277845 4.62199,2.294665 11.68246,7.226633 37.8721,26.454898 48.15839,33.765429 48.17696,34.239679 0.0115,0.29345 -5.12868,15.69369 -11.4226,34.22275 l -11.4435,33.68919 H 115.25407 78.623742 Z m 58.23761,-5.6807 c 0.56231,-1.52409 3.48681,-10.25297 6.4989,-19.39751 3.01209,-9.14454 5.83791,-17.57743 6.2796,-18.73975 0.4417,-1.16233 0.67137,-2.40931 0.51039,-2.77107 -0.36354,-0.81695 -6.60569,-5.80227 -7.55251,-6.03183 -0.44185,-0.10714 -2.09788,3.95118 -4.56752,11.19332 -5.90704,17.32223 -9.84375,27.9442 -10.52376,28.39501 -0.3378,0.22394 -11.30449,0.41099 -24.37041,0.41566 -13.065929,0.005 -23.756231,0.0895 -23.756231,0.18852 0,0.16719 2.525098,7.54345 3.11811,9.10855 0.208663,0.55071 5.872286,0.66782 26.802811,0.55421 l 26.53825,-0.14404 z m 17.04845,-9.2831 c 2.23693,-6.7822 5.71495,-17.22051 7.72894,-23.19626 2.01398,-5.97575 3.66179,-11.25357 3.66179,-11.72849 0,-0.88359 -38.40594,-29.446066 -39.16099,-29.123999 -0.94855,0.404608 -5.74834,4.085118 -5.76872,4.423495 -0.0122,0.202653 1.19407,1.219279 2.68062,2.25917 12.73432,8.908124 18.52231,13.118984 24.89424,18.110974 4.06844,3.18734 7.48914,5.85862 7.60157,5.93616 0.11243,0.0776 -0.8233,3.21042 -2.0794,6.96194 -1.25609,3.75153 -4.61278,13.76625 -7.45931,22.25496 -2.84652,8.4887 -5.1755,15.65885 -5.1755,15.93366 0,0.27482 2.02716,0.49967 4.50481,0.49967 h 4.50481 z"
         fill="none"
-        stroke="rgba(212, 175, 55, 0.95)"
-        strokeWidth="10"
+        stroke="#D4AF37"
+        strokeWidth="3.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-      >
-        <path className="pent-edge outer" d="M 500 80 L 865 360" />
-        <path className="pent-edge outer" d="M 865 360 L 725 790" />
-        <path className="pent-edge outer" d="M 725 790 L 275 790" />
-        <path className="pent-edge outer" d="M 275 790 L 135 360" />
-        <path className="pent-edge outer" d="M 135 360 L 500 80" />
-
-        <path className="pent-edge inner" d="M 500 80 L 725 790" />
-        <path className="pent-edge inner" d="M 865 360 L 275 790" />
-        <path className="pent-edge inner" d="M 725 790 L 135 360" />
-        <path className="pent-edge inner" d="M 275 790 L 500 80" />
-        <path className="pent-edge inner" d="M 135 360 L 865 360" />
-      </g>
+      />
     </svg>
   );
 };
