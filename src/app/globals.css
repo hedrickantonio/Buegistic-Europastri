@@ -100,26 +100,20 @@
 .pentagon-layer {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
   pointer-events: none;
   z-index: 0;
 }
 
-.pentagon-layer svg {
-  width: min(1200px, 96vw);
+#bluegistics-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(2.3);
+  width: min(1400px, 120vw);
   height: auto;
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.35));
-  opacity: 0.95;
-}
-
-#bluegistics-logo .logo-path {
-  fill: none;
-  stroke: #D4AF37;
-  stroke-width: 3.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  pointer-events: none;
+  z-index: 0;
+  filter: drop-shadow(0 0 28px rgba(212,175,55,0.35));
 }
 
 .form-layer {
