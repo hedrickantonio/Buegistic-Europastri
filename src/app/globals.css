@@ -95,8 +95,8 @@ body {
 
 .scene {
   position: relative;
-  width: min(980px, 92vw);
-  height: min(720px, 86vh);
+  width: min(1100px, 96vw);
+  height: min(820px, 90vh);
   display: grid;
   place-items: center;
 }
@@ -111,8 +111,11 @@ body {
 }
 
 .pentagon-layer svg {
-  width: min(980px, 92vw);
+  width: min(1050px, 96vw);
   height: auto;
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.30));
+  opacity: 0.95;
 }
 
 .form-layer {
