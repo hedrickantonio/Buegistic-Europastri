@@ -104,53 +104,68 @@
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  display: grid;
+  place-items: center;
 }
 
 .form-layer {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   display: grid;
   place-items: center;
-  transform: translateY(clamp(-40px, -5vh, -10px));
+  transform: translateY(clamp(20px, 4vh, 60px));
 }
 
-.logoShine {
+/* The two layers for the mask effect */
+.logoInk,
+.logoGlow {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: clamp(720px, 95vw, 1400px);
-  height: clamp(720px, 95vw, 1400px);
   transform: translate(-50%, -50%) rotate(-10deg);
-  
-  background-color: transparent;
-  background-image: radial-gradient(
-    circle,
-    rgba(255, 220, 130, 0.9) 0%,
-    rgba(212, 175, 55, 0.5) 10%,
-    transparent 25%
-  );
-  background-size: 25% 25%;
-  background-repeat: no-repeat;
-  
+  width: clamp(1200px, 180vw, 2600px);
+  height: clamp(1200px, 180vw, 2600px);
+
+  /* The PNG mask */
   -webkit-mask-image: url('/bluegistics-mask.png');
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: contain;
-  -webkit-mask-mode: luminance;
+  -webkit-mask-mode: alpha; /* Use alpha for transparency */
 
   mask-image: url('/bluegistics-mask.png');
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
-  mask-mode: luminance;
-
-  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
-
-  animation: spotlight-roam 7s ease-in-out infinite;
+  mask-mode: alpha; /* Use alpha for transparency */
 }
 
-@keyframes spotlight-roam {
+/* Layer 1: The black ink of the logo (invisible on black bg) */
+.logoInk {
+  background-color: #000;
+  z-index: 1; /* Sits on top of the glow */
+}
+
+/* Layer 2: The animated glow underneath the ink */
+.logoGlow {
+  background-color: transparent;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 220, 130, 0.9) 0%,
+    rgba(212, 175, 55, 0.5) 10%,
+    transparent 20%
+  );
+  background-size: 30% 30%;
+  background-repeat: no-repeat;
+  z-index: 0; /* Sits behind the ink */
+  
+  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+
+  animation: glow-roam 7s ease-in-out infinite;
+}
+
+@keyframes glow-roam {
   0% {
     background-position: 20% 90%;
     opacity: 0;
