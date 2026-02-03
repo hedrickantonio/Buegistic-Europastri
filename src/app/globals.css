@@ -101,8 +101,6 @@
 .pentagon-layer {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
@@ -118,9 +116,12 @@
 
 .logoBase,
 .logoShine {
+  position: absolute;
+  left: 50%;
+  top: 50%;
   width: clamp(720px, 95vw, 1400px);
   height: clamp(720px, 95vw, 1400px);
-  transform: rotate(-10deg);
+  transform: translate(-50%, -50%) rotate(-10deg);
   -webkit-mask-image: url('/bluegistics-mask.png');
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -178,9 +179,9 @@
 @keyframes glowPulse {
   0%,
   100% {
-    transform: rotate(-10deg) scale(1);
+    transform: translate(-50%, -50%) rotate(-10deg) scale(1);
   }
   50% {
-    transform: rotate(-10deg) scale(1.015);
+    transform: translate(-50%, -50%) rotate(-10deg) scale(1.015);
   }
 }
