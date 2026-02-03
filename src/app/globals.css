@@ -86,3 +86,43 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.scene {
+  position: relative;
+  width: min(980px, 92vw);
+  height: min(720px, 86vh);
+  display: grid;
+  place-items: center;
+}
+
+.pentagon-layer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pentagon-layer svg {
+  width: min(980px, 92vw);
+  height: auto;
+}
+
+.form-layer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+#bluegistics-pentagon {
+  filter: drop-shadow(0 0 14px rgba(212, 175, 55, 0.35));
+}
