@@ -1,0 +1,8 @@
+{
+  "name": "bluegistic-europastri",
+  "private": true,
+"scripts": {
+    "dev": "cd src/Api && python run.py",
+    "start": "cd src/Front && npm run dev"
+  }
+}
