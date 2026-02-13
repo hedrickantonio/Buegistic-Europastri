@@ -64,3 +64,7 @@ __pycache__/
 # Environment files
 .env
 .env.local
+
+src/Front/.next/
+src/Front/node_modules/
+
